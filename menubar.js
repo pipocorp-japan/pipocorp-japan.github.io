@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     for (const a of bar.getElementsByTagName("a")) {
       if (a.href == window.location.href) {
         a.className = "active";
-      } else if ("https://pipocorp.glitch.me/" == window.location.href) {
+      } else if ("https://pipocorp-japan.github.io" == window.location.href) {
         hbtn.className = "active";
       }
     }
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "memoflow.html": "MemoFlow",
   };
 
-  const baseURL = "https://pipocorp.glitch.me";
+  const baseURL = "https://pipocorp-japan.github.io";
   const currentURL = window.location.href;
 
   // パンくずリストのコンテナ
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const path = currentURL.replace(baseURL, "").split("/").filter(Boolean);
 
   // 最初のピポアイコン
-  const iconHTML = `<a href="${baseURL}"><img src="https://cdn.glitch.global/8ef56ca2-81d1-41e7-aeb7-92a709e47aec/icon.png?v=1728623402929" alt="ピポのアイコン" style="height: 20px;"></a>`;
+  const iconHTML = `<a href="${baseURL}"><img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="ピポのアイコン" style="height: 20px;"></a>`;
   breadcrumb.innerHTML = iconHTML;
 
   // パンくずリスト生成

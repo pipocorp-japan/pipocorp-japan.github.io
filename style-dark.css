@@ -1,6 +1,6 @@
 @font-face {
   font-family: "kleeone";
-  src: url("https://cdn.glitch.global/8ef56ca2-81d1-41e7-aeb7-92a709e47aec/kleeone.ttf?v=1728375977234")
+  src: url("https://pipocorp-japan.github.io/asset/kleeone.ttf?v=1728375977234")
     format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -183,7 +183,7 @@ header {
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://cdn.glitch.global/8ef56ca2-81d1-41e7-aeb7-92a709e47aec/dsk.png?v=1730535054752")
+    url("https://pipocorp-japan.github.io/asset/dsk.png?v=1730535054752")
       center/cover;
   background-size: cover;
   border-bottom: 5px solid #007bff; /* ヘッダー下にボーダー追加 */
@@ -193,7 +193,7 @@ header {
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://cdn.glitch.global/8ef56ca2-81d1-41e7-aeb7-92a709e47aec/psk.png?v=1730535027534")
+    url("https://pipocorp-japan.github.io/asset/psk.png?v=1730535027534")
       center/cover;
   background-size: cover;
   border-bottom: 5px solid #007bff; /* ヘッダー下にボーダー追加 */
@@ -203,7 +203,7 @@ header {
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://cdn.glitch.global/8ef56ca2-81d1-41e7-aeb7-92a709e47aec/pd.png?v=1730535023728")
+    url("https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728")
       center/cover;
   background-size: cover;
   border-bottom: 5px solid #007bff; /* ヘッダー下にボーダー追加 */
@@ -213,7 +213,7 @@ header {
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://cdn.glitch.global/8ef56ca2-81d1-41e7-aeb7-92a709e47aec/chartLab.png?v=1733294314278")
+    url("https://pipocorp-japan.github.io/asset/chartLab.png?v=1733294314278")
       center/cover;
   background-size: cover;
   border-bottom: 5px solid #007bff; /* ヘッダー下にボーダー追加 */
