@@ -150,14 +150,14 @@ html {
 .menubar a:hover {
   background-color: #007bff;
   border-radius: 3px;
-  color: #001f3f;
+  color: #001f3f66;
   transform: translateY(-2px); /* ホバー時に少し浮かせる */
 }
 
 .menubar a.active {
   background-color: #ffffff;
   border-radius: 3px;
-  color: #001f3f;
+  color: #001f3f66;
 }
 
 /* 見出しのアニメーション */
@@ -399,11 +399,11 @@ ul {
     color: #dddddd;
   }
   .menubar a:hover {
-    background-color: #007bff;
+    background-color: #007bff66;
     color: #ffffff;
   }
   .menubar a.active {
-    background-color: #ffffff;
+    background-color: #ffffff66;
     color: #000000;
   }
   header {
