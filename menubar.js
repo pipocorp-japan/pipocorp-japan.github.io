@@ -65,6 +65,14 @@ window
   .addEventListener("change", updateTheme);
 
 document.addEventListener("DOMContentLoaded", () => {
+    // footer.js
+fetch('https://pipocorp-japan.github.io/footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  })
+  .catch(error => console.error('フッター読み込み失敗:', error));
+
   // URLと対応する名前のマッピング
   const pages = {
     "index.html": "ホーム",
@@ -104,11 +112,4 @@ document.addEventListener("DOMContentLoaded", () => {
       ? ` > ${name}`
       : ` > <a href="${pathURL}">${name}</a>`;
   });
-  // footer.js
-fetch('https://pipocorp-japan.github.io/footer.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('footer-placeholder').innerHTML = data;
-  })
-  .catch(error => console.error('フッター読み込み失敗:', error));
 });
