@@ -32,38 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-// ページ読み込み時にダークモードの設定を確認
-document.addEventListener("DOMContentLoaded", function () {
-  const theme = localStorage.getItem("theme");
-  const themeLink = document.getElementById("theme-style");
-
-  if (theme === "dark") {
-    themeLink.href = "style-dark.css"; // ダークモードのスタイルシートを適用
-  }
-});
-// システムのテーマに基づいて自動でスタイルシートを適用する関数
-function updateTheme() {
-  const themeLink = document.getElementById("theme-style");
-
-  // システムのダークモード設定を取得
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    themeLink.href = "style-dark.css"; // ダークモードのスタイルシートを適用
-  } else {
-    themeLink.href = "style.css"; // ライトモードのスタイルシートを適用
-  }
-}
-
-// ページ読み込み時にテーマを更新
-document.addEventListener("DOMContentLoaded", updateTheme);
-
-// システムのテーマが変更されたときにテーマを更新
-window
-  .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", updateTheme);
-
 // footer.js
 fetch('https://pipocorp-japan.github.io/footer.html')
   .then(response => response.text())
