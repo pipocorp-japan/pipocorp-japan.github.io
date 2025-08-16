@@ -129,7 +129,6 @@ html {
   overflow-x: hidden; /* 横スクロールの無効化 */
 }
 .menubar {
-  background-color: #001f3f;
   display: flex;
   justify-content: space-between; /* コンテンツを左右に分散 */
   padding: 0.5em 1.5em;
@@ -162,15 +161,24 @@ html {
 
 /* 見出しのアニメーション */
 header {
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between; /* 左右に要素を並べる */
+  align-items: center; /* 縦方向で中央揃え */
+  padding: 60px 20px;
   animation: backgroundMove 10s infinite alternate;
   color: #000000;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
   background-size: 300% 300%;
   text-align: center;
   border-bottom: 5px solid #007bff; /* ヘッダー下にボーダー追加 */
-  padding: 60px 20px;
 }
+
+/* ヘッダー内の要素が横並びになるように設定 */
+header > * {
+  flex: 1; /* 各要素を均等に広げる */
+  text-align: center; /* 要素内のテキストを中央揃え */
+}
+
 
 /* 背景アニメーション */
 @keyframes backgroundMove {
@@ -392,7 +400,6 @@ ul {
     overflow-x: hidden; /* 横スクロールの無効化 */
   }
   .menubar {
-    background-color: #1c1c1c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   .menubar a {
