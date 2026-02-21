@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>製品詳細 | pipo.corp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" />
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .product-content h1 { @apply text-3xl font-black mb-6 text-gray-900; }
+        .product-content h2 { @apply text-xl font-bold mt-10 mb-4 text-gray-800 border-l-4 border-pipo-500 pl-4; }
+        .product-content p { @apply text-gray-600 leading-relaxed mb-4; }
+        .product-content ul { @apply list-disc list-inside mb-6 space-y-2 text-gray-600; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pipo: { 500: '#0ea5e9', 600: '#0284c7' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header with Company Icon -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group transition-all">
+                <div class="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden border border-gray-100 group-hover:shadow-md transition-all">
+                    <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-gray-400 leading-none mb-0.5">HOME</span>
+                    <span class="font-black text-gray-900 leading-none tracking-tight">pipo.corp</span>
+                </div>
+            </a>
+            
+            <nav class="hidden sm:flex gap-6">
+                <a href="pages/story.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Story</a>
+                <a href="pages/terms.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+        <div id="loading" class="flex justify-center py-20">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-pipo-600"></div>
+        </div>
+
+        <div id="product-display" class="hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Sidebar / Icon -->
+                <div class="lg:col-span-4">
+                    <div class="sticky top-32">
+                        <div class="bg-white rounded-[2.5rem] p-10 shadow-xl shadow-gray-200/50 border border-gray-100 mb-8 transform transition-all hover:scale-[1.02]">
+                            <img id="product-icon" src="" alt="" class="w-full h-auto drop-shadow-2xl">
+                        </div>
+                        <div id="product-tags" class="flex flex-wrap gap-2">
+                            <!-- Tags injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="lg:col-span-8">
+                    <nav class="mb-8 flex items-center gap-2 text-sm font-bold text-gray-400">
+                        <a href="index.html#products" class="hover:text-pipo-600 transition-colors">PRODUCTS</a>
+                        <i class="fas fa-chevron-right text-[10px]"></i>
+                        <span id="breadcrumb-name" class="text-pipo-600 uppercase tracking-tighter">PRODUCT NAME</span>
+                    </nav>
+
+                    <div id="product-html-content" class="product-content">
+                        <!-- Content loaded from HTML files -->
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="mt-16 p-8 md:p-12 bg-gray-900 rounded-[2rem] text-white overflow-hidden relative">
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-black mb-4">このツールを使ってみる</h3>
+                            <p class="text-gray-400 mb-8 max-w-md">pipo.corpのプロダクトは、ブラウザ上ですぐに、またはインストールしてご利用いただけます。</p>
+                            <a id="action-btn" href="#" class="inline-flex items-center gap-3 bg-pipo-600 hover:bg-pipo-500 text-white px-8 py-4 rounded-2xl font-black transition-all transform hover:scale-105 shadow-lg shadow-pipo-600/20">
+                                <i class="fas fa-external-link-alt"></i>
+                                今すぐ起動する
+                            </a>
+                        </div>
+                        <div class="absolute -right-10 -bottom-10 opacity-10 rotate-12 pointer-events-none">
+                            <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="" class="w-64 h-64">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="error-display" class="hidden text-center py-20">
+            <i class="fas fa-exclamation-circle text-6xl text-gray-200 mb-6"></i>
+            <h2 class="text-2xl font-black text-gray-900 mb-4">製品が見つかりませんでした</h2>
+            <p class="text-gray-500 mb-8">お探しのページは削除されたか、URLが間違っている可能性があります。</p>
+            <a href="index.html" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-pipo-600 transition-colors">トップページに戻る</a>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-gray-400 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/pipocorp-japan" class="text-gray-400 hover:text-gray-900 transition-colors"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const products = {
+            'memoflow': {
+                name: 'memoflow',
+                icon: 'https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069',
+                file: 'products/memoflow.html',
+                tags: ['Utility', 'Mobile', 'Minimalist'],
+                url: '#'
+            },
+            'pipochart': {
+                name: 'pipochart',
+                icon: 'https://pipocorp-japan.github.io/asset/chartLab.png?v=1732956500116',
+                file: 'products/pipochart.html',
+                tags: ['Data', 'Graph', 'Visualization'],
+                url: '#'
+            },
+            'pipotext': {
+                name: 'pipoText',
+                icon: 'https://pipocorp-japan.github.io/asset/ptext.png?v=1734502121069',
+                file: 'products/pipotext.html',
+                tags: ['Editor', 'Coding', 'Web App'],
+                url: '#'
+            },
+            'dsk': {
+                name: '便利な缶詰め (DSK)',
+                icon: 'https://pipocorp-japan.github.io/asset/dsk.png?v=1730535054752',
+                file: 'products/dsk.html',
+                tags: ['DevTools', 'Efficiency'],
+                url: '#'
+            },
+            'psk': {
+                name: 'ピポの便利な缶詰め',
+                icon: 'https://pipocorp-japan.github.io/asset/psk.png?v=1730535027534',
+                file: 'products/psk.html',
+                tags: ['Tools', 'Lifehack'],
+                url: '#'
+            },
+            'pd': {
+                name: 'ピポ図鑑',
+                icon: 'https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728',
+                file: 'products/pd.html',
+                tags: ['Wiki', 'Characters', 'Fun'],
+                url: '#'
+            }
+        };
+
+        async function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const data = products[productId];
+
+            const loading = document.getElementById('loading');
+            const display = document.getElementById('product-display');
+            const error = document.getElementById('error-display');
+
+            if (!data) {
+                loading.classList.add('hidden');
+                error.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                // Set UI
+                document.title = `${data.name} | pipo.corp`;
+                document.getElementById('breadcrumb-name').textContent = data.name;
+                document.getElementById('product-icon').src = data.icon;
+                document.getElementById('product-icon').alt = data.name;
+                document.getElementById('action-btn').href = data.url;
+
+                // Tags
+                const tagContainer = document.getElementById('product-tags');
+                data.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'px-3 py-1 bg-gray-100 text-gray-500 text-[10px] font-black rounded-full uppercase tracking-tighter';
+                    span.textContent = tag;
+                    tagContainer.appendChild(span);
+                });
+
+                // Fetch content
+                const response = await fetch(data.file);
+                if (response.ok) {
+                    const html = await response.text();
+                    document.getElementById('product-html-content').innerHTML = html;
+                } else {
+                    document.getElementById('product-html-content').innerHTML = `<h1>${data.name}</h1><p>詳細情報は現在準備中です。</p>`;
+                }
+
+                loading.classList.add('hidden');
+                display.classList.remove('hidden');
+            } catch (e) {
+                console.error(e);
+                loading.classList.add('hidden');
+                error.classList.remove('hidden');
+            }
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>

@@ -1,221 +1,265 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <!-- 基本情報 -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- 会社のSEO強化 -->
-    <meta
-      name="description"
-      content="pipo.corpは、創造力とテクノロジーを融合した次世代型クリエイティブ企業です。革新的なアプリ・Webツール・教育コンテンツを開発しています。"
-    />
-    <meta
-      name="keywords"
-      content="pipo.corp, ピポコープ, IT企業, 中学生起業, 数学ツール, 教育テクノロジー, プログラミング, Web開発, 創作, オリジナルアプリ"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pipo.corp - 創造力 × テクノロジー</title>
+    
+    <!-- SEO & OGP -->
+    <meta name="description" content="pipo.corpは、創造力とテクノロジーを融合した次世代型クリエイティブ企業です。革新的なアプリ・Webツール・教育コンテンツを開発しています。" />
+    <meta name="keywords" content="pipo.corp, ピポコープ, IT企業, 中学生起業, 数学ツール, 教育テクノロジー, プログラミング, Web開発, 創作, オリジナルアプリ" />
     <meta name="author" content="Sato Yu（佐藤 悠）" />
-
-    <!-- Open Graph (SNS共有) -->
     <meta property="og:title" content="pipo.corp - 創造する会社" />
-    <meta
-      property="og:description"
-      content="中学生が立ち上げた革新的なテクノロジー企業。pNumなどのプロダクトで、学びと創造を加速。"
-    />
-    <meta
-      property="og:image"
-      content="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929"
-    />
-    <!-- ←会社のロゴ画像URL -->
+    <meta property="og:description" content="中学生が立ち上げた革新的なテクノロジー企業。pNumなどのプロダクトで、学びと創造を加速。" />
+    <meta property="og:image" content="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" />
     <meta property="og:url" content="https://pipocorp-japan.github.io" />
     <meta property="og:type" content="website" />
+    <link rel="icon" href="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" />
 
-    <!-- Twitterカード -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="pipo.corp - 創造力 × テクノロジー" />
-    <meta
-      name="twitter:description"
-      content="pipo.corpは、若き才能と情熱で未来を変えるテックカンパニーです。"
-    />
-    <meta
-      name="twitter:image"
-      content="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929"
-    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] },
+                    colors: {
+                        pipo: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .service-card img { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover img { transform: scale(1.1) rotate(3deg); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ホーム | pipo.corp</title>
-    <link id="theme-style" rel="stylesheet" href="style.css" />
-    <script src="menubar.js"></script>
-    <link
-      rel="icon"
-      href="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929"
-    />
-  </head>
-  <body>
-    <div class="menubar">
-      <a href="index.html" id="hbtn">ホーム</a>
-      <a href="form.html">お問い合わせ</a>
-      <a href="story.html">会社のストーリー</a>
-      <a href="Philosophy.html">企業理念</a>
-      <a href="terms.html">利用規約</a>
-    </div>
-    <header>
-      <h1>pipo.corp</h1>
-    </header>
-    <div class="con">
-      <section id="SERVICE">
-        <h2>💁SERVICE</h2>
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 glass-nav border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="logo" class="w-10 h-10 rounded-xl shadow-sm">
+                    <span class="font-black text-xl tracking-tighter text-gray-900">pipo.corp</span>
+                </a>
 
-        <div class="service-container">
-          <div class="service-item">
-            <a href="memoflow.html">
-              <img
-                src="https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069"
-                alt="memoflow"
-                class="service-icon"
-              />
-            </a>
-            <a href="memoflow.html">
-              <h3 class="service-title">📝memoflow(🆕)</h3></a
-            >
-            <p class="service-description">
-              スマホ向けメモアプリ
-              <br />
-              <a href="memoflow.html">サービスページへ移動</a>
-            </p>
-          </div>
-          <div class="service-item">
-            <a href="pipotext.html">
-              <img
-                src="https://pipocorp-japan.github.io/asset/ptext.png?v=1734502121069"
-                alt="pipotext"
-                class="service-icon"
-              />
-            </a>
-            <a href="pipotext.html"> <h3 class="service-title">pipoText</h3></a>
-            <p class="service-description">
-              aceを活用したテキストエディター
-              <br />
-              <a href="pipotext.html">サービスページへ移動</a>
-            </p>
-          </div>
-          <div class="service-item">
-            <a href="pipochart.html">
-              <img
-                src="https://pipocorp-japan.github.io/asset/chartLab.png?v=1732956500116"
-                alt="pipoChart"
-                class="service-icon"
-              />
-            </a>
-            <a href="pipochart.html">
-              <h3 class="service-title">📈pipochart</h3></a
-            >
-            <p class="service-description">
-              PipoChartは、簡単操作でデータを美しく可視化できるグラフ作成アプリです。
-              棒グラフや円グラフなど多彩な種類に対応し、カスタマイズも自由自在。
-              CSV対応でデータの管理もスムーズ。
-              学校や仕事、個人のプロジェクトに最適です！
-              <br />
-              <a href="pipochart.html">サービスページへ移動</a>
-            </p>
-          </div>
-          <div class="service-item">
-            <a href="dsk.html">
-              <img
-                src="https://pipocorp-japan.github.io/asset/dsk.png?v=1730535054752"
-                alt="開発者にとっては便利な缶詰め"
-                class="service-icon"
-              />
-            </a>
-            <a href="dsk.html">
-              <h3 class="service-title">
-                🧑‍💻開発者にとっては便利な缶詰め
-              </h3></a
-            >
-            <p class="service-description">
-              「開発者にとっては便利な缶詰め」は、開発者が必要とする機能がギュッと詰まっています。スムーズなコーディングから、効率的なプロジェクト管理まで、これ一缶で全て解決！
-              。<br />
-              <a href="dsk.html">サービスページへ移動</a>
-            </p>
-          </div>
-          <div class="service-item">
-            <a href="psk.html">
-              <img
-                src="https://pipocorp-japan.github.io/asset/psk.png?v=1730535027534"
-                alt="ピポの便利な缶詰め"
-                class="service-icon"
-            /></a>
-            <a href="psk.html">
-              <h3 class="service-title">🥫ピポの便利な缶詰め</h3></a
-            >
-            <p class="service-description">
-              ピポの便利な缶詰めには、さまざまな便利なツールが入っています。
-              これらのツールは、日常生活や仕事を効率化するために役立ちます。
-              <br />
-              <a href="psk.html">サービスページへ移動</a>。
-            </p>
-          </div>
-          <div class="service-item">
-            <a href="pd.html">
-              <img
-                src="https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728"
-                alt="ピポ図鑑"
-                class="service-icon" /></a
-            ><a href="pd.html"> <h3 class="service-title">📚ピポ図鑑</h3></a>
-            <p class="service-description">
-              ピポ図鑑は、ピポのキャラクターに関する詳細情報を収録したデジタル図鑑です。各キャラクターの特徴を一冊にまとめています。
-              <br />
-              <a href="pd.html">サービスページへ移動</a>
-            </p>
-          </div>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="story.html" class="text-sm font-medium hover:text-pipo-600 transition-colors">ストーリー</a>
+                    <a href="#products" class="text-sm font-medium hover:text-pipo-600 transition-colors">サービス</a>
+                    <a href="#news" class="text-sm font-medium hover:text-pipo-600 transition-colors">ニュース</a>
+                    <a href="terms.html" class="text-sm font-medium hover:text-pipo-600 transition-colors">利用規約</a>
+                    <a href="form.html" class="bg-gray-900 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-pipo-600 transition-all">お問い合わせ</a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600"><i class="fas fa-bars text-xl"></i></button>
+            </div>
         </div>
-      </section>
-      <section id="NEWS">
-        <h2>📰NEWS</h2>
-        <table border="1">
-          <thead>
-            <tr>
-              <th>🕓日時</th>
-              <th>🔔内容</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2024/12/04</td>
-              <td>
-                「pipochart」を公開しました。<a href="pipochart.html">詳細</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2024/11/10</td>
-              <td>「ホーム」をリニューアルしました。</td>
-            </tr>
-            <tr>
-              <td>2024/11/02</td>
-              <td>「利用規約」を公開しました。<a href="terms.html">詳細</a></td>
-            </tr>
-            <tr>
-              <td>2024/10/29</td>
-              <td>
-                「企業理念」ページを追加しました。<a href="Philosophy.html"
-                  >詳細</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>2024/10/27</td>
-              <td>
-                「開発者にとっては便利な缶詰め」を公開しました。<a
-                  href="dsk.html"
-                  >詳細</a
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </div>
-<div id="footer-placeholder"></div>
-  </body>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 p-4 space-y-4 shadow-lg">
+            <a href="story.html" class="block font-medium">ストーリー</a>
+            <a href="#products" class="block font-medium">サービス</a>
+            <a href="#news" class="block font-medium">ニュース</a>
+            <a href="terms.html" class="block font-medium">利用規約</a>
+            <a href="form.html" class="block font-medium text-pipo-600">お問い合わせ</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-52 lg:pb-40 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pipo-50 text-pipo-600 text-xs font-bold mb-8 border border-pipo-100 animate-bounce">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pipo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-pipo-600"></span>
+                    </span>
+                    中学生が立ち上げたテックカンパニー
+                </div>
+                <h1 class="text-5xl md:text-8xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.9]">
+                    創造力 <span class="text-pipo-600">×</span><br>テクノロジー
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 mb-12 leading-relaxed">
+                    pipo.corpは、若き才能と情熱で未来を変えるクリエイティブ企業です。<br class="hidden md:block">
+                    学びと創造を加速させる、次世代のツールを世界へ。
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#products" class="bg-pipo-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-pipo-500 shadow-xl shadow-pipo-500/20 transition-all hover:-translate-y-1">プロダクトを体験</a>
+                    <a href="story.html" class="bg-gray-100 text-gray-800 px-10 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-all">私たちの歩み</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl font-black text-gray-900 mb-4">Service & Products</h2>
+                    <p class="text-gray-500">pipo.corpが提供する、日常を便利にするアプリたち。</p>
+                </div>
+                <div class="text-pipo-600 font-bold hidden md:block">Total: 6 Products</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- memoflow -->
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl hover:shadow-pipo-500/10 transition-all group">
+                    <div class="mb-6 overflow-hidden rounded-2xl bg-gray-50 aspect-square flex items-center justify-center p-8">
+                        <img src="https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069" alt="memoflow" class="w-full h-auto drop-shadow-xl">
+                    </div>
+                    <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black rounded-md mb-2">NEW SERVICE</span>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">memoflow</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">スマホ向けメモアプリ。思考を妨げない直感的なインターフェースを実現。</p>
+                    <a href="productviewer.html?id=memoflow" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
+                        詳細ページへ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- pipochart -->
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl hover:shadow-pipo-500/10 transition-all group">
+                    <div class="mb-6 overflow-hidden rounded-2xl bg-gray-50 aspect-square flex items-center justify-center p-8">
+                        <img src="https://pipocorp-japan.github.io/asset/chartLab.png?v=1732956500116" alt="pipochart" class="w-full h-auto drop-shadow-xl">
+                    </div>
+                    <span class="inline-block px-3 py-1 bg-green-50 text-green-600 text-[10px] font-black rounded-md mb-2">VISUALIZATION</span>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">pipochart</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">簡単操作でデータを美しく可視化。CSV対応で学校や仕事に最適なグラフ作成ツール。</p>
+                    <a href="productviewer.html?id=pipochart" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
+                        詳細ページへ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- pipotext -->
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl hover:shadow-pipo-500/10 transition-all group">
+                    <div class="mb-6 overflow-hidden rounded-2xl bg-gray-50 aspect-square flex items-center justify-center p-8">
+                        <img src="https://pipocorp-japan.github.io/asset/ptext.png?v=1734502121069" alt="pipotext" class="w-full h-auto drop-shadow-xl">
+                    </div>
+                    <span class="inline-block px-3 py-1 bg-purple-50 text-purple-600 text-[10px] font-black rounded-md mb-2">EDITOR</span>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">pipoText</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Aceを活用した高機能テキストエディター。プログラミングや執筆を強力にサポート。</p>
+                    <a href="productviewer.html?id=pipotext" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
+                        詳細ページへ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- dsk -->
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl hover:shadow-pipo-500/10 transition-all group">
+                    <div class="mb-6 overflow-hidden rounded-2xl bg-gray-50 aspect-square flex items-center justify-center p-8">
+                        <img src="https://pipocorp-japan.github.io/asset/dsk.png?v=1730535054752" alt="dsk" class="w-full h-auto drop-shadow-xl">
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">便利な缶詰め (DSK)</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">開発者が必要とする機能がギュッと詰まった、効率的なプロジェクト管理ツール。</p>
+                    <a href="productviewer.html?id=dsk" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
+                        詳細ページへ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- psk -->
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl hover:shadow-pipo-500/10 transition-all group">
+                    <div class="mb-6 overflow-hidden rounded-2xl bg-gray-50 aspect-square flex items-center justify-center p-8">
+                        <img src="https://pipocorp-japan.github.io/asset/psk.png?v=1730535027534" alt="psk" class="w-full h-auto drop-shadow-xl">
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">ピポの便利な缶詰め</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">日常生活や仕事を効率化する、さまざまな便利ツールをパッケージング。</p>
+                    <a href="productviewer.html?id=psk" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
+                        詳細ページへ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- pd -->
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl hover:shadow-pipo-500/10 transition-all group">
+                    <div class="mb-6 overflow-hidden rounded-2xl bg-gray-50 aspect-square flex items-center justify-center p-8">
+                        <img src="https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728" alt="pd" class="w-full h-auto drop-shadow-xl">
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">ピポ図鑑</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">ピポのキャラクター詳細情報を収録したデジタル図鑑。各キャラの個性をチェック。</p>
+                    <a href="productviewer.html?id=pd" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
+                        詳細ページへ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-black text-gray-900 text-center mb-16">Latest News</h2>
+            <div class="space-y-8">
+                <div class="flex gap-6 items-start">
+                    <div class="text-pipo-600 font-bold shrink-0 pt-1 text-sm">2024.12.04</div>
+                    <div class="pb-8 border-b border-gray-100 w-full">
+                        <span class="inline-block px-2 py-0.5 bg-pipo-50 text-pipo-600 text-[10px] font-bold rounded mb-2">RELEASE</span>
+                        <p class="text-gray-800 font-bold mb-1">「pipochart」を公開しました。</p>
+                        <a href="productviewer.html?id=pipochart" class="text-sm text-gray-500 hover:text-pipo-600 underline">詳細を見る</a>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="text-pipo-600 font-bold shrink-0 pt-1 text-sm">2024.11.10</div>
+                    <div class="pb-8 border-b border-gray-100 w-full">
+                        <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold rounded mb-2">UPDATE</span>
+                        <p class="text-gray-800 font-bold">公式サイトをモダンデザインにリニュー合わせリニューアルしました。</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="text-pipo-600 font-bold shrink-0 pt-1 text-sm">2024.11.02</div>
+                    <div class="pb-8 border-b border-gray-100 w-full">
+                        <span class="inline-block px-2 py-0.5 bg-pipo-50 text-pipo-600 text-[10px] font-bold rounded mb-2">INFO</span>
+                        <p class="text-gray-800 font-bold mb-1">「利用規約」を公開しました。</p>
+                        <a href="terms.html" class="text-sm text-gray-500 hover:text-pipo-600 underline">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-black mb-8 italic">Let's Create the Future.</h2>
+            <p class="text-gray-400 mb-12">プロジェクトに関するお問い合わせや、コラボレーションのご提案はこちらから。</p>
+            <a href="form.html" class="inline-flex items-center gap-3 bg-white text-gray-900 px-10 py-5 rounded-3xl font-black text-xl hover:bg-pipo-500 hover:text-white transition-all transform hover:-translate-y-2">
+                <i class="far fa-envelope"></i> お問い合わせを送る
+            </a>
+
+            <div class="mt-32 pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="footer-logo" class="w-8 h-8 opacity-50">
+                    <span class="font-black text-lg opacity-50 tracking-tighter">pipo.corp</span>
+                </div>
+                <div class="flex space-x-6 text-gray-500 text-sm">
+                    <a href="story.html" class="hover:text-white transition-colors">ストーリー</a>
+                    <a href="terms.html" class="hover:text-white transition-colors">利用規約</a>
+                    <a href="https://github.com/pipocorp-japan" class="hover:text-white transition-colors"><i class="fab fa-github text-lg"></i></a>
+                </div>
+                <p class="text-gray-600 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp / Sato Yu</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) header.classList.add('py-2', 'shadow-lg');
+            else header.classList.remove('py-2', 'shadow-lg');
+        });
+    </script>
+</body>
 </html>

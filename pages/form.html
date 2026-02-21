@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | pipo.corp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" />
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .form-container {
+            position: relative;
+            width: 100%;
+            padding-top: 150%; /* アスペクト比の調整 */
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .form-container {
+                padding-top: 100%; /* デスクトップでは少し短めに */
+            }
+        }
+        .form-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pipo: { 500: '#0ea5e9', 600: '#0284c7' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header with Company Icon -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group transition-all">
+                <div class="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden border border-gray-100 group-hover:shadow-md transition-all">
+                    <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-gray-400 leading-none mb-0.5">HOME</span>
+                    <span class="font-black text-gray-900 leading-none tracking-tight">pipo.corp</span>
+                </div>
+            </a>
+            
+            <nav class="flex gap-6">
+                <a href="index.html#products" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Products</a>
+                <a href="pages/story.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Story</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">CONTACT</h1>
+            <p class="text-gray-500 max-w-lg mx-auto">
+                製品に関するご質問、不具合報告、またはお仕事のご依頼など、以下のフォームよりお気軽にお問い合わせください。
+            </p>
+        </div>
+
+        <!-- Google Form Wrapper -->
+        <div class="bg-white rounded-[2.5rem] shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
+            <div class="p-2 md:p-4 bg-gray-50 border-b border-gray-100 flex items-center gap-2">
+                <div class="flex gap-1.5 ml-2">
+                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                </div>
+                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-4">Inquiry Form</span>
+            </div>
+            
+            <div class="form-container">
+                <!-- 
+                     Googleフォームを公開後、
+                     src="YOUR_GOOGLE_FORM_URL" 
+                     の部分を実際のURLに書き換えてください。
+                -->
+                <iframe 
+                    src="about:blank" 
+                    id="contact-form"
+                    title="お問い合わせフォーム"
+                >
+                    読み込み中...
+                </iframe>
+                
+                <!-- URLが未設定の時のダミー表示（本番ではiframeが上に来ます） -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 text-gray-400 p-12 text-center">
+                    <i class="fas fa-edit text-4xl mb-4 opacity-20"></i>
+                    <p class="font-bold">Form Placeholder</p>
+                    <p class="text-sm mt-2">ここにGoogleフォームが表示されます。<br>HTML内の iframe src を更新してください。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-sm text-gray-400">
+                通常、3営業日以内にご返信いたします。<br class="sm:hidden">
+                お急ぎの場合は、SNS等でも受け付けております。
+            </p>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-gray-400 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/pipocorp-japan" class="text-gray-400 hover:text-gray-900 transition-colors"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
