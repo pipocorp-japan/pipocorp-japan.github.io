@@ -11,38 +11,45 @@
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
         
-        /* コンテンツエリア内のスタイルを詳細に定義 */
+        /* コンテンツエリア内の装飾を徹底的に定義 */
         .product-content {
             @apply leading-relaxed text-gray-700;
         }
         
-        /* あなたのHTMLタグ構成（h1, p.text-xl, div.description）を活かす定義 */
+        /* 見出しが「ただの文字」にならないよう明示的に装飾 */
         .product-content h1 { 
-            @apply text-4xl md:text-5xl font-black mb-6 text-gray-900 tracking-tighter flex items-center gap-3; 
+            display: block !important;
+            @apply text-4xl md:text-5xl font-black mb-8 text-gray-900 tracking-tighter;
+            line-height: 1.2;
         }
         
         .product-content h2 { 
-            @apply text-2xl font-black mt-12 mb-6 text-gray-800 flex items-center gap-2; 
+            display: block !important;
+            @apply text-2xl font-black mt-16 mb-6 text-gray-800 border-l-8 border-pipo-600 pl-4;
         }
         
-        /* キャッチコピー部分 */
+        /* キャッチコピー */
         .product-content .text-pipo-600 {
-            @apply text-pipo-600 font-bold leading-tight;
+            @apply text-pipo-600 font-black block mb-6;
         }
 
-        /* 説明文のカード部分 */
+        /* あなたが作成した description クラスをカード化 */
         .product-content .description {
-            @apply shadow-sm border border-gray-100 p-8 rounded-[2rem] bg-white my-8 leading-loose text-lg;
+            @apply shadow-xl shadow-gray-200/50 border border-gray-100 p-8 md:p-10 rounded-[2.5rem] bg-white my-10 leading-loose text-lg text-gray-600;
         }
 
-        .product-content p { @apply mb-4; }
+        .product-content p { @apply mb-6; }
 
-        /* リスト部分 */
+        /* リストの装飾 */
         .product-content ul { 
-            @apply space-y-4 mb-8; 
+            @apply space-y-5 my-8 ml-2; 
         }
         .product-content ul li {
-            @apply flex items-start gap-3 before:content-['●'] before:text-pipo-500 before:text-[10px] before:pt-2;
+            @apply flex items-center gap-4 text-gray-600 font-medium;
+        }
+        .product-content ul li::before {
+            content: "✓";
+            @apply flex-shrink-0 w-6 h-6 bg-pipo-100 text-pipo-600 rounded-full flex items-center justify-center text-xs font-black;
         }
     </style>
     <script>
@@ -50,7 +57,7 @@
             theme: {
                 extend: {
                     colors: {
-                        pipo: { 500: '#0ea5e9', 600: '#0284c7' }
+                        pipo: { 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7' }
                     }
                 }
             }
@@ -59,74 +66,75 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Header -->
+    <!-- ヘッダー -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-6 h-16 md:h-24 flex items-center justify-between">
             <a href="../index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-transform group-hover:scale-95">
                     <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-[10px] font-black text-pipo-600 tracking-widest leading-none mb-1">BACK TO HOME</span>
+                    <span class="text-[10px] font-black text-pipo-600 tracking-widest leading-none mb-1">ホームへ戻る</span>
                     <span class="font-black text-xl text-gray-900 leading-none tracking-tighter">pipo.corp</span>
                 </div>
             </a>
             <div class="flex gap-4">
-                <a href="form.html" class="bg-gray-900 text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-pipo-600 transition-all shadow-lg shadow-gray-900/10">Contact</a>
+                <a href="form.html" class="bg-gray-900 text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-pipo-600 transition-all shadow-lg shadow-gray-900/10">お問い合わせ</a>
             </div>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
-        <div id="loading" class="flex justify-center py-20">
+        <!-- 読み込み中表示 -->
+        <div id="loading" class="flex flex-col items-center justify-center py-20 gap-4">
             <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-pipo-600"></div>
+            <p class="text-xs font-bold text-gray-400 tracking-widest">データを取得中...</p>
         </div>
 
         <div id="product-display" class="hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 
-                <!-- Sidebar -->
+                <!-- サイドバー：製品アイコンとアクションボタン -->
                 <div class="lg:col-span-4 lg:sticky lg:top-36">
                     <div class="bg-white rounded-[3rem] p-10 shadow-2xl shadow-pipo-500/5 border border-gray-100 mb-8 overflow-hidden relative group">
                         <img id="product-icon" src="" alt="" class="w-full h-auto drop-shadow-2xl transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent pointer-events-none"></div>
                     </div>
                     <div id="product-tags" class="flex flex-wrap gap-2 mb-8"></div>
                     
-                    <div class="p-8 bg-white border border-gray-100 rounded-[2rem] shadow-sm">
-                        <p class="text-xs font-bold text-gray-400 mb-4 tracking-widest">ACTION</p>
-                        <a id="action-btn" href="#" target="_blank" class="flex items-center justify-center gap-3 bg-pipo-600 hover:bg-pipo-500 text-white w-full py-4 rounded-2xl font-black transition-all transform hover:-translate-y-1 shadow-xl shadow-pipo-600/20">
-                            <i class="fas fa-rocket"></i>
-                            今すぐ使ってみる
+                    <div class="p-8 bg-gray-900 rounded-[2rem] shadow-xl text-white">
+                        <p class="text-[10px] font-black text-gray-500 mb-4 tracking-widest uppercase">今すぐチェック</p>
+                        <a id="action-btn" href="#" target="_blank" class="flex items-center justify-center gap-3 bg-pipo-600 hover:bg-pipo-500 text-white w-full py-4 rounded-2xl font-black transition-all transform hover:scale-[1.03] shadow-lg shadow-pipo-600/30">
+                            <i class="fas fa-external-link-alt"></i>
+                            アプリを起動する
                         </a>
                     </div>
                 </div>
 
-                <!-- Main Content -->
+                <!-- メインコンテンツ：製品詳細を注入 -->
                 <div class="lg:col-span-8">
-                    <!-- Breadcrumb -->
                     <nav class="mb-10 flex items-center gap-3 text-xs font-bold tracking-widest text-gray-400 uppercase">
-                        <a href="../index.html#products" class="hover:text-pipo-600">Products</a>
+                        <a href="../index.html#products" class="hover:text-pipo-600 transition-colors">製品一覧</a>
                         <span class="text-gray-200">/</span>
-                        <span id="breadcrumb-name" class="text-gray-900">Name</span>
+                        <span id="breadcrumb-name" class="text-gray-900">製品名</span>
                     </nav>
 
-                    <!-- ここに products/*.html の中身が注入される -->
+                    <!-- ここに products/*.html の中身が「HTMLとして」注入されます -->
                     <div id="product-html-content" class="product-content"></div>
 
-                    <!-- Footer Space -->
-                    <div class="mt-20 pt-10 border-t border-gray-100 flex justify-between items-center text-gray-400 text-[10px] font-bold tracking-widest">
-                        <span>PIPO.CORP PRODUCT PAGE</span>
-                        <a href="../index.html" class="hover:text-gray-900 transition-colors">BACK TO TOP</a>
+                    <div class="mt-24 pt-10 border-t border-gray-100 flex justify-between items-center text-gray-400 text-[10px] font-bold tracking-widest uppercase">
+                        <span>pipo.corp official product detail</span>
+                        <a href="../index.html" class="hover:text-gray-900 transition-colors">ホームへ戻る</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Error -->
-        <div id="error-display" class="hidden text-center py-20">
-            <h2 class="text-2xl font-black mb-4">Content Not Found</h2>
-            <a href="../index.html" class="text-pipo-600 font-bold underline">Go Back</a>
+        <!-- エラー画面 -->
+        <div id="error-display" class="hidden text-center py-24">
+            <i class="fas fa-exclamation-triangle text-5xl text-gray-200 mb-8"></i>
+            <h2 class="text-2xl font-black mb-4">製品ページが見つかりません</h2>
+            <p class="text-gray-500 mb-10 font-medium">お探しの製品情報は現在非公開か、移動された可能性があります。</p>
+            <a href="../index.html" class="bg-gray-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-pipo-600 transition-all">トップページへ戻る</a>
         </div>
     </main>
 
@@ -136,42 +144,42 @@
                 name: 'memoflow',
                 icon: 'https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069',
                 file: '../products/memoflow.html',
-                tags: ['Utility', 'Minimal'],
+                tags: ['ツール', 'モバイル', 'ミニマリスト'],
                 url: 'https://pipocorp-japan.github.io/memoflow/'
             },
             'pipochart': {
                 name: 'pipochart',
                 icon: 'https://pipocorp-japan.github.io/asset/chartLab.png?v=1732956500116',
                 file: '../products/pipochart.html',
-                tags: ['Data', 'Graph'],
+                tags: ['データ', 'グラフ', '可視化'],
                 url: 'https://pipocorp-japan.github.io/pipochart/'
             },
             'pipotext': {
                 name: 'pipoText',
                 icon: 'https://pipocorp-japan.github.io/asset/ptext.png?v=1734502121069',
                 file: '../products/pipotext.html',
-                tags: ['Coding', 'Editor'],
+                tags: ['エディタ', '開発者', 'Web'],
                 url: 'https://pipocorp-japan.github.io/pipotext/'
             },
             'dsk': {
                 name: '便利な缶詰め (DSK)',
                 icon: 'https://pipocorp-japan.github.io/asset/dsk.png?v=1730535054752',
                 file: '../products/dsk.html',
-                tags: ['Dev', 'Manager'],
+                tags: ['効率化', 'ツール集'],
                 url: 'https://pipocorp-japan.github.io/dsk/'
             },
             'psk': {
                 name: 'ピポの便利な缶詰め',
                 icon: 'https://pipocorp-japan.github.io/asset/psk.png?v=1730535027534',
                 file: '../products/psk.html',
-                tags: ['Life', 'Utility'],
+                tags: ['ライフハック', '日常'],
                 url: 'https://pipocorp-japan.github.io/psk/'
             },
             'pd': {
                 name: 'ピポ図鑑',
                 icon: 'https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728',
                 file: '../products/pd.html',
-                tags: ['Wiki', 'Char'],
+                tags: ['キャラクター', '図鑑'],
                 url: 'https://pipocorp-japan.github.io/pd/'
             }
         };
@@ -198,24 +206,33 @@
                 const tagContainer = document.getElementById('product-tags');
                 data.tags.forEach(tag => {
                     const s = document.createElement('span');
-                    s.className = 'px-3 py-1 bg-white border border-gray-100 text-gray-400 text-[9px] font-black rounded-full uppercase tracking-widest';
+                    s.className = 'px-3 py-1 bg-white border border-gray-100 text-gray-400 text-[10px] font-black rounded-full uppercase tracking-widest';
                     s.textContent = tag;
                     tagContainer.appendChild(s);
                 });
 
+                // HTMLファイルをフェッチ
                 const response = await fetch(data.file);
                 if (response.ok) {
-                    const html = await response.text();
-                    // コンテンツを注入。注入後にクラススタイルが適用される
-                    document.getElementById('product-html-content').innerHTML = html;
+                    const htmlText = await response.text();
+                    
+                    // 単なる文字列ではなく、DOMとして解析して注入
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlText, 'text/html');
+                    const contentBody = doc.querySelector('.product-content') || doc.body;
+                    
+                    document.getElementById('product-html-content').innerHTML = contentBody.innerHTML;
                 } else {
-                    document.getElementById('product-html-content').innerHTML = `<h1>Coming Soon</h1><p>現在準備中です。</p>`;
+                    document.getElementById('product-html-content').innerHTML = `
+                        <h1 class="text-4xl font-black mb-6">${data.name}</h1>
+                        <div class="description">申し訳ありません。この製品の詳細情報は現在準備中です。</div>
+                    `;
                 }
 
                 loading.classList.add('hidden');
                 display.classList.remove('hidden');
             } catch (e) {
-                console.error(e);
+                console.error('Initialization error:', e);
                 loading.classList.add('hidden');
                 document.getElementById('error-display').classList.remove('hidden');
             }
