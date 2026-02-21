@@ -58,7 +58,7 @@
                 </a>
 
                 <nav class="hidden md:flex space-x-8 items-center">
-                    <!-- pagesフォルダ内へのリンクを修正 -->
+                    <!-- 修正: 相対パス指定 -->
                     <a href="pages/story.html" class="text-sm font-medium hover:text-pipo-600 transition-colors">ストーリー</a>
                     <a href="#products" class="text-sm font-medium hover:text-pipo-600 transition-colors">サービス</a>
                     <a href="#news" class="text-sm font-medium hover:text-pipo-600 transition-colors">ニュース</a>
@@ -113,7 +113,6 @@
                     <h2 class="text-4xl font-black text-gray-900 mb-4">Service & Products</h2>
                     <p class="text-gray-500">pipo.corpが提供する、日常を便利にするアプリたち。</p>
                 </div>
-                <div class="text-pipo-600 font-bold hidden md:block">Total: 6 Products</div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -125,7 +124,6 @@
                     <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black rounded-md mb-2">NEW SERVICE</span>
                     <h3 class="text-2xl font-black text-gray-900 mb-2">memoflow</h3>
                     <p class="text-gray-500 text-sm leading-relaxed mb-6">スマホ向けメモアプリ。思考を妨げない直感的なインターフェースを実現。</p>
-                    <!-- productsフォルダ内へのリンクを修正 -->
                     <a href="products/memoflow.html" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
                         詳細を見る <i class="fas fa-arrow-right"></i>
                     </a>
@@ -151,7 +149,7 @@
                     </div>
                     <span class="inline-block px-3 py-1 bg-purple-50 text-purple-600 text-[10px] font-black rounded-md mb-2">EDITOR</span>
                     <h3 class="text-2xl font-black text-gray-900 mb-2">pipoText</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Aceを活用した高機能テキストエディター。プログラミングや執筆を強力にサポート。</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Aceを活用した高機能テキストエディター。執筆を強力にサポート。</p>
                     <a href="products/pipotext.html" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
                         詳細を見る <i class="fas fa-arrow-right"></i>
                     </a>
@@ -187,7 +185,7 @@
                         <img src="https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728" alt="pd" class="w-full h-auto drop-shadow-xl">
                     </div>
                     <h3 class="text-2xl font-black text-gray-900 mb-2">ピポ図鑑</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">ピポのキャラクター詳細情報を収録したデジタル図鑑。個性をチェック。</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">ピポのキャラクター詳細情報を収録したデジタル図鑑。</p>
                     <a href="products/pd.html" class="flex items-center gap-2 font-bold text-pipo-600 hover:gap-4 transition-all">
                         詳細を見る <i class="fas fa-arrow-right"></i>
                     </a>
@@ -210,13 +208,6 @@
                     </div>
                 </div>
                 <div class="flex gap-6 items-start">
-                    <div class="text-pipo-600 font-bold shrink-0 pt-1 text-sm">2024.11.10</div>
-                    <div class="pb-8 border-b border-gray-100 w-full">
-                        <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold rounded mb-2">UPDATE</span>
-                        <p class="text-gray-800 font-bold">公式サイトをモダンデザインにリニューアルしました。</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
                     <div class="text-pipo-600 font-bold shrink-0 pt-1 text-sm">2024.11.02</div>
                     <div class="pb-8 border-b border-gray-100 w-full">
                         <span class="inline-block px-2 py-0.5 bg-pipo-50 text-pipo-600 text-[10px] font-bold rounded mb-2">INFO</span>
@@ -228,11 +219,10 @@
         </div>
     </section>
 
-    <!-- Contact & Footer -->
+    <!-- Footer -->
     <footer id="contact" class="bg-gray-900 text-white pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-black mb-8 italic">Let's Create the Future.</h2>
-            <p class="text-gray-400 mb-12">プロジェクトに関するお問い合わせや、コラボレーションのご提案はこちらから。</p>
             <a href="pages/form.html" class="inline-flex items-center gap-3 bg-white text-gray-900 px-10 py-5 rounded-3xl font-black text-xl hover:bg-pipo-600 hover:text-white transition-all transform hover:-translate-y-2">
                 <i class="far fa-envelope"></i> お問い合わせを送る
             </a>
@@ -245,9 +235,9 @@
                 <div class="flex space-x-6 text-gray-500 text-sm">
                     <a href="pages/story.html" class="hover:text-white transition-colors">ストーリー</a>
                     <a href="pages/terms.html" class="hover:text-white transition-colors">利用規約</a>
-                    <a href="https://github.com/pipocorp-japan" class="hover:text-white transition-colors"><i class="fab fa-github text-lg"></i></a>
+                    <a href="https://github.com/pipocorp-japan" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-github text-lg"></i></a>
                 </div>
-                <p class="text-gray-600 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp / Sato Yu</p>
+                <p class="text-gray-600 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp</p>
             </div>
         </div>
     </footer>
