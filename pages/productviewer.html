@@ -10,10 +10,12 @@
     <link rel="icon" href="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" />
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
+        /* products/*.html から読み込まれるコンテンツのスタイル定義 */
         .product-content h1 { @apply text-3xl font-black mb-6 text-gray-900; }
         .product-content h2 { @apply text-xl font-bold mt-10 mb-4 text-gray-800 border-l-4 border-pipo-500 pl-4; }
         .product-content p { @apply text-gray-600 leading-relaxed mb-4; }
         .product-content ul { @apply list-disc list-inside mb-6 space-y-2 text-gray-600; }
+        .product-content strong { @apply text-gray-900 font-bold; }
     </style>
     <script>
         tailwind.config = {
@@ -32,7 +34,7 @@
     <!-- Header with Company Icon -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-5xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-            <a href="https://pipocorp-japan.github.io/index.html" class="flex items-center gap-3 group transition-all">
+            <a href="../index.html" class="flex items-center gap-3 group transition-all">
                 <div class="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden border border-gray-100 group-hover:shadow-md transition-all">
                     <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
                 </div>
@@ -43,8 +45,8 @@
             </a>
             
             <nav class="hidden sm:flex gap-6">
-                <a href="pages/story.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Story</a>
-                <a href="pages/terms.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Terms</a>
+                <a href="story.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Story</a>
+                <a href="terms.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Terms</a>
             </nav>
         </div>
     </header>
@@ -71,7 +73,7 @@
                 <!-- Main Content -->
                 <div class="lg:col-span-8">
                     <nav class="mb-8 flex items-center gap-2 text-sm font-bold text-gray-400">
-                        <a href="index.html#products" class="hover:text-pipo-600 transition-colors">PRODUCTS</a>
+                        <a href="../index.html#products" class="hover:text-pipo-600 transition-colors">PRODUCTS</a>
                         <i class="fas fa-chevron-right text-[10px]"></i>
                         <span id="breadcrumb-name" class="text-pipo-600 uppercase tracking-tighter">PRODUCT NAME</span>
                     </nav>
@@ -102,7 +104,7 @@
             <i class="fas fa-exclamation-circle text-6xl text-gray-200 mb-6"></i>
             <h2 class="text-2xl font-black text-gray-900 mb-4">製品が見つかりませんでした</h2>
             <p class="text-gray-500 mb-8">お探しのページは削除されたか、URLが間違っている可能性があります。</p>
-            <a href="index.html" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-pipo-600 transition-colors">トップページに戻る</a>
+            <a href="../index.html" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-pipo-600 transition-colors">トップページに戻る</a>
         </div>
     </main>
 
@@ -120,44 +122,44 @@
             'memoflow': {
                 name: 'memoflow',
                 icon: 'https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069',
-                file: 'products/memoflow.html',
+                file: '../products/memoflow.html', // 1つ上の階層のproductsフォルダを参照
                 tags: ['Utility', 'Mobile', 'Minimalist'],
-                url: '#'
+                url: 'https://pipocorp-japan.github.io/memoflow/'
             },
             'pipochart': {
                 name: 'pipochart',
                 icon: 'https://pipocorp-japan.github.io/asset/chartLab.png?v=1732956500116',
-                file: 'products/pipochart.html',
+                file: '../products/pipochart.html',
                 tags: ['Data', 'Graph', 'Visualization'],
-                url: '#'
+                url: 'https://pipocorp-japan.github.io/pipochart/'
             },
             'pipotext': {
                 name: 'pipoText',
                 icon: 'https://pipocorp-japan.github.io/asset/ptext.png?v=1734502121069',
-                file: 'products/pipotext.html',
+                file: '../products/pipotext.html',
                 tags: ['Editor', 'Coding', 'Web App'],
-                url: '#'
+                url: 'https://pipocorp-japan.github.io/pipotext/'
             },
             'dsk': {
                 name: '便利な缶詰め (DSK)',
                 icon: 'https://pipocorp-japan.github.io/asset/dsk.png?v=1730535054752',
-                file: 'products/dsk.html',
+                file: '../products/dsk.html',
                 tags: ['DevTools', 'Efficiency'],
-                url: '#'
+                url: 'https://pipocorp-japan.github.io/dsk/'
             },
             'psk': {
                 name: 'ピポの便利な缶詰め',
                 icon: 'https://pipocorp-japan.github.io/asset/psk.png?v=1730535027534',
-                file: 'products/psk.html',
+                file: '../products/psk.html',
                 tags: ['Tools', 'Lifehack'],
-                url: '#'
+                url: 'https://pipocorp-japan.github.io/psk/'
             },
             'pd': {
                 name: 'ピポ図鑑',
                 icon: 'https://pipocorp-japan.github.io/asset/pd.png?v=1730535023728',
-                file: 'products/pd.html',
+                file: '../products/pd.html',
                 tags: ['Wiki', 'Characters', 'Fun'],
-                url: '#'
+                url: 'https://pipocorp-japan.github.io/pd/'
             }
         };
 
@@ -186,6 +188,7 @@
 
                 // Tags
                 const tagContainer = document.getElementById('product-tags');
+                tagContainer.innerHTML = ''; // クリア
                 data.tags.forEach(tag => {
                     const span = document.createElement('span');
                     span.className = 'px-3 py-1 bg-gray-100 text-gray-500 text-[10px] font-black rounded-full uppercase tracking-tighter';
@@ -193,19 +196,21 @@
                     tagContainer.appendChild(span);
                 });
 
-                // Fetch content
+                // Fetch content from external HTML file
                 const response = await fetch(data.file);
                 if (response.ok) {
                     const html = await response.text();
+                    // HTML全体ではなくbodyの中身や特定のタグのみを抽出する場合の処理が必要であればここで調整
                     document.getElementById('product-html-content').innerHTML = html;
                 } else {
-                    document.getElementById('product-html-content').innerHTML = `<h1>${data.name}</h1><p>詳細情報は現在準備中です。</p>`;
+                    console.error('Fetch failed:', response.status);
+                    document.getElementById('product-html-content').innerHTML = `<h1>${data.name}</h1><p>詳細ファイル（${data.file}）が見つかりませんでした。</p>`;
                 }
 
                 loading.classList.add('hidden');
                 display.classList.remove('hidden');
             } catch (e) {
-                console.error(e);
+                console.error('Error in init:', e);
                 loading.classList.add('hidden');
                 error.classList.remove('hidden');
             }
