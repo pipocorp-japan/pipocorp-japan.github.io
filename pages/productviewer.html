@@ -11,29 +11,50 @@
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
 
-        /* プロダクトコンテンツ側のクラスを尊重しつつ、ベースのタイポグラフィのみ提供 */
-        .product-content {
-            @apply text-gray-800 leading-relaxed;
+    /* --- プロダクトコンテンツの自動装飾 --- */
+    .product-content {
+        @apply text-gray-700 leading-relaxed;
+    }
+
+    /* 見出し1：メインタイトル */
+    .product-content h1 {
+        @apply text-4xl md:text-5xl font-black mb-4 text-gray-900 tracking-tighter flex items-center gap-3;
+    }
+
+    /* キャッチコピー（h1の直後のpタグを自動装飾） */
+    .product-content h1 + p {
+        @apply text-xl font-bold text-pipo-600 mb-10 tracking-tight;
+    }
+
+    /* 見出し2：セクションタイトル */
+    .product-content h2 {
+        @apply text-2xl font-black mt-16 mb-6 text-gray-800 border-l-8 border-pipo-600 pl-4 flex items-center gap-2;
+    }
+
+    /* 説明文のカード（.description クラスがついたdivを自動装飾） */
+    .product-content .description {
+        @apply bg-white border border-gray-100 p-8 rounded-[2rem] mb-10 shadow-xl shadow-gray-200/50 leading-loose text-gray-600;
+    }
+    .product-content .description h2 {
+        @apply !mt-0 !mb-4 border-none p-0 text-xl text-pipo-600;
         }
 
-        /* 詳細HTML内のh1, h2等のデフォルトマージンを補完 */
-        .product-content h1 { @apply text-4xl font-black mb-2; }
-        .product-content h2 { @apply text-xl font-bold mt-12 mb-4; }
-        .product-content p { @apply leading-relaxed; }
-        
-        /* 箇条書きがプレーンテキストにならないよう最小限の記号を付与（詳細側で指定がない場合のみ） */
-        .product-content ul:not(.list-none):not([class*='space-y']) {
-            @apply list-disc list-inside ml-4 mb-4;
+        /* リスト：主な特徴など */
+        .product-content ul {
+            @apply space-y-4 my-6 ml-1;
+        }
+        .product-content li {
+            @apply flex items-start gap-3 text-gray-600 font-medium;
+        }
+        /* liの前に自動でチェックマークを付与 */
+        .product-content li::before {
+            content: "✓";
+            @apply flex-shrink-0 w-6 h-6 bg-pipo-100 text-pipo-600 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5;
         }
 
-        /* descriptionカード内のh2マージン解除（!mt-0対応の補助） */
-        .product-content .description h2:first-child {
-            @apply mt-0 mb-3;
-        }
-
-        /* ナンバリングリスト等のレイアウト微調整 */
-        .product-content .space-y-6 > div {
-            @apply transition-all;
+        /* 強調一行：最下部のクロージング */
+        .product-content p:last-child:not(.description p) {
+            @apply mt-16 p-8 text-center bg-gray-900 text-white rounded-[2.5rem] font-bold text-lg shadow-xl;
         }
     </style>
     <script>
