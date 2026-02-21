@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>製品詳細 | pipo.corp</title>
@@ -70,68 +70,60 @@
     <script>
         tailwind.config = { theme: { extend: { colors: { pipo: { 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7' } } } } }
     </script>
-</head>
-<body class="bg-gray-50 text-gray-800 antialiased">
-
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased">
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center gap-3 group">
-                <div class="w-8 h-8 rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                    <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-[9px] font-black text-pipo-600 tracking-tighter leading-none mb-0.5">ホームへ戻る</span>
-                    <span class="font-black text-lg text-gray-900 leading-none tracking-tight">pipo.corp</span>
-                </div>
-            </a>
-            <a href="form.html" class="bg-gray-900 text-white px-5 py-2 rounded-xl text-xs font-bold hover:bg-pipo-600 transition-all shadow-lg shadow-gray-900/10">お問い合わせ</a>
-        </div>
+      <div class="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center gap-3 group">
+          <div class="w-8 h-8 rounded-lg overflow-hidden border border-gray-100 shadow-sm">
+            <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[9px] font-black text-pipo-600 tracking-tighter leading-none mb-0.5">ホームへ戻る</span>
+            <span class="font-black text-lg text-gray-900 leading-none tracking-tight">pipo.corp</span>
+          </div>
+        </a>
+        <a href="form.html" class="bg-gray-900 text-white px-5 py-2 rounded-xl text-xs font-bold hover:bg-pipo-600 transition-all shadow-lg shadow-gray-900/10">お問い合わせ</a>
+      </div>
     </header>
-
     <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
-        <div id="loading" class="flex flex-col items-center justify-center py-20 gap-4">
-            <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-pipo-600"></div>
-        </div>
-
-        <div id="product-display" class="hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <div class="lg:col-span-4 lg:sticky lg:top-28">
-                    <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-gray-200/40 border border-gray-100 mb-6 relative overflow-hidden">
-                        <img id="product-icon" src="" alt="" class="w-full h-auto drop-shadow-xl z-10 relative">
-                        <div class="absolute -right-4 -bottom-4 w-32 h-32 bg-pipo-50 rounded-full blur-3xl opacity-50"></div>
-                    </div>
-                    <div id="product-tags" class="flex flex-wrap gap-2 mb-8"></div>
-                    <div class="bg-slate-900 rounded-3xl p-6 shadow-2xl shadow-slate-900/20 text-white">
-                        <p class="text-[9px] font-bold text-slate-500 mb-3 tracking-widest uppercase text-center">Check This Out</p>
-                        <a id="action-btn" href="#" target="_blank" class="flex items-center justify-center gap-3 bg-pipo-600 hover:bg-pipo-500 text-white w-full py-4 rounded-2xl font-black transition-all shadow-lg shadow-pipo-600/30">
-                            <i class="fas fa-external-link-alt text-sm"></i>
-                            アプリを起動する
-                        </a>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-8">
-                    <nav class="mb-8 flex items-center gap-2 text-[10px] font-black tracking-widest text-gray-400 uppercase">
-                        <a href="../index.html#products" class="hover:text-pipo-600 transition-colors">製品一覧</a>
-                        <i class="fas fa-chevron-right text-[8px] opacity-30"></i>
-                        <span id="breadcrumb-name" class="text-gray-900 tracking-tighter">製品名</span>
-                    </nav>
-                    <div id="product-html-content" class="product-content"></div>
-                    <div class="mt-24 pt-8 border-t border-gray-100 flex justify-between items-center text-[9px] font-bold text-gray-300 tracking-widest uppercase">
-                        <span>pipo.corp official product detail</span>
-                        <a href="../index.html" class="hover:text-gray-900 transition-colors">ホームへ戻る</a>
-                    </div>
-                </div>
+      <div id="loading" class="flex flex-col items-center justify-center py-20 gap-4">
+        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-pipo-600"></div>
+      </div>
+      <div id="product-display" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-4 lg:sticky lg:top-28">
+            <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-gray-200/40 border border-gray-100 mb-6 relative overflow-hidden">
+              <img id="product-icon" src="" alt="" class="w-full h-auto drop-shadow-xl z-10 relative">
+              <div class="absolute -right-4 -bottom-4 w-32 h-32 bg-pipo-50 rounded-full blur-3xl opacity-50"></div>
             </div>
+            <div id="product-tags" class="flex flex-wrap gap-2 mb-8"></div>
+            <div class="bg-slate-900 rounded-3xl p-6 shadow-2xl shadow-slate-900/20 text-white">
+              <p class="text-[9px] font-bold text-slate-500 mb-3 tracking-widest uppercase text-center">Check This Out</p>
+              <a id="action-btn" href="#" target="_blank" class="flex items-center justify-center gap-3 bg-pipo-600 hover:bg-pipo-500 text-white w-full py-4 rounded-2xl font-black transition-all shadow-lg shadow-pipo-600/30">
+                <i class="fas fa-external-link-alt text-sm"></i>アプリを起動する
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-8">
+            <nav class="mb-8 flex items-center gap-2 text-[10px] font-black tracking-widest text-gray-400 uppercase">
+              <a href="../index.html#products" class="hover:text-pipo-600 transition-colors">製品一覧</a>
+              <i class="fas fa-chevron-right text-[8px] opacity-30"></i>
+              <span id="breadcrumb-name" class="text-gray-900 tracking-tighter">製品名</span>
+            </nav>
+            <div id="product-html-content" class="product-content"></div>
+            <div class="mt-24 pt-8 border-t border-gray-100 flex justify-between items-center text-[9px] font-bold text-gray-300 tracking-widest uppercase">
+              <span>pipo.corp official product detail</span>
+              <a href="../index.html" class="hover:text-gray-900 transition-colors">ホームへ戻る</a>
+            </div>
+          </div>
         </div>
-
-        <div id="error-display" class="hidden text-center py-24">
-            <h2 class="text-xl font-black mb-4">Content Not Found</h2>
-            <a href="../index.html" class="text-pipo-600 font-bold">トップに戻る</a>
-        </div>
+      </div>
+      <div id="error-display" class="hidden text-center py-24">
+        <h2 class="text-xl font-black mb-4">Content Not Found</h2>
+        <a href="../index.html" class="text-pipo-600 font-bold">トップに戻る</a>
+      </div>
     </main>
-
     <script>
         const products = {
             'memoflow': { name: 'memoflow', icon: 'https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069', file: '../products/memoflow.html', tags: ['メモ', 'ミニマル'], url: 'https://pipocorp-japan.github.io/memoflow/' },
@@ -173,5 +165,5 @@
         }
         window.onload = init;
     </script>
-</body>
+  </body>
 </html>

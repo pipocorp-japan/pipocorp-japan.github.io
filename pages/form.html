@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ | pipo.corp</title>
@@ -10,24 +10,14 @@
     <link rel="icon" href="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" />
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
-        .form-container {
-            position: relative;
-            width: 100%;
-            padding-top: 150%; /* アスペクト比の調整 */
-            overflow: hidden;
-        }
-        @media (min-width: 768px) {
-            .form-container {
-                padding-top: 100%; /* デスクトップでは少し短めに */
-            }
-        }
-        .form-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+        /* 余計なアスペクト比固定のCSSを削除し、シンプルな余白設定に変更 */
+        .form-content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
         }
     </style>
     <script>
@@ -41,69 +31,67 @@
             }
         }
     </script>
-</head>
-<body class="bg-gray-50 text-gray-800 antialiased">
-
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
     <!-- Header with Company Icon -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div class="max-w-5xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-            <a href="https://pipocorp-japan.github.io/index.html" class="flex items-center gap-3 group transition-all">
-                <div class="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden border border-gray-100 group-hover:shadow-md transition-all">
-                    <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-xs font-bold text-gray-400 leading-none mb-0.5">HOME</span>
-                    <span class="font-black text-gray-900 leading-none tracking-tight">pipo.corp</span>
-                </div>
-            </a>
-            
-            <nav class="flex gap-6">
-                <a href="index.html#products" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Products</a>
-                <a href="pages/story.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Story</a>
-            </nav>
-        </div>
+      <div class="max-w-5xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+        <a href="https://pipocorp-japan.github.io/index.html" class="flex items-center gap-3 group transition-all">
+          <div class="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden border border-gray-100 group-hover:shadow-md transition-all">
+            <img src="https://pipocorp-japan.github.io/asset/icon.png?v=1728623402929" alt="pipo.corp" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-gray-400 leading-none mb-0.5">HOME</span>
+            <span class="font-black text-gray-900 leading-none tracking-tight">pipo.corp</span>
+          </div>
+        </a>
+        <nav class="flex gap-6">
+          <a href="https://pipocorp-japan.github.io/index.html#products" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Products</a>
+          <a href="https://pipocorp-japan.github.io/pages/story.html" class="text-xs font-bold text-gray-400 hover:text-pipo-600 uppercase tracking-widest">Story</a>
+        </nav>
+      </div>
     </header>
-
-    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
-        <div class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">CONTACT</h1>
-            <p class="text-gray-500 max-w-lg mx-auto">
-                製品に関するご質問、不具合報告、またはお仕事のご依頼など、以下のフォームよりお気軽にお問い合わせください。
-            </p>
+    <main class="flex-grow max-w-4xl mx-auto w-full px-6 py-12 md:py-20">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">CONTACT</h1>
+        <p class="text-gray-500 max-w-lg mx-auto">製品に関するご質問、不具合報告、またはお仕事のご依頼など、以下のフォームよりお気軽にお問い合わせください。 </p>
+      </div>
+      <!-- Form Section -->
+      <div class="bg-white rounded-[2.5rem] shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
+        <!-- Window Decoration -->
+        <div class="p-2 md:p-4 bg-gray-50 border-b border-gray-100 flex items-center gap-2">
+          <div class="flex gap-1.5 ml-2">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+          </div>
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-4">Inquiry Form</span>
         </div>
-
-        <!-- Google Form Wrapper -->
-        <div class="bg-white rounded-[2.5rem] shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
-            <div class="p-2 md:p-4 bg-gray-50 border-b border-gray-100 flex items-center gap-2">
-                <div class="flex gap-1.5 ml-2">
-                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                </div>
-                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-4">Inquiry Form</span>
+        <!-- Content -->
+        <div class="form-content-area">
+          <div class="mb-8">
+            <div class="w-16 h-16 bg-pipo-50 text-pipo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-paper-plane text-2xl"></i>
             </div>
-            
-            <div class="form-container">
-                <p class="text-gray-500 max-w-lg mx-auto">
-                    以下のボタンをクリックしてGoogleフォームを開いてください。
-                </p>
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdYfEpZ4wFQxnORCFWgEsNe8GvzTDGjQg77Z1giRq_xInRGMw/viewform?usp=dialog"
-                    class="bg-pipo-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-pipo-500 shadow-xl shadow-pipo-500/20 transition-all hover:-translate-y-1">
-                    問い合わせる
-                </a>
-            </div>
+            <p class="text-gray-600 font-medium">Googleフォームにて承っております。 </p>
+            <p class="text-gray-400 text-sm mt-1">※別タブでフォームが開きます </p>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYfEpZ4wFQxnORCFWgEsNe8GvzTDGjQg77Z1giRq_xInRGMw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-pipo-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-pipo-500 shadow-xl shadow-pipo-500/20 transition-all hover:-translate-y-1 active:scale-95">
+            <span>問い合わせる</span>
+            <i class="fas fa-external-link-alt text-sm"></i>
+          </a>
         </div>
+      </div>
     </main>
-
     <footer class="py-12 border-t border-gray-100">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-gray-400 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp</p>
-            <div class="flex gap-6">
-                <a href="https://github.com/pipocorp-japan" class="text-gray-400 hover:text-gray-900 transition-colors"><i class="fab fa-github"></i></a>
-            </div>
+      <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-gray-400 text-xs tracking-widest uppercase">&copy; 2024-2026 pipo.corp</p>
+        <div class="flex gap-6">
+          <a href="https://github.com/pipocorp-japan" class="text-gray-400 hover:text-gray-900 transition-colors">
+            <i class="fab fa-github text-xl"></i>
+          </a>
         </div>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>
