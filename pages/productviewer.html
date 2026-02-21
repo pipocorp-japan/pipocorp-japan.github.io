@@ -11,51 +11,72 @@
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
 
-    /* --- プロダクトコンテンツの自動装飾 --- */
-    .product-content {
-        @apply text-gray-700 leading-relaxed;
-    }
+        /* ============================================================
+           詳細HTML（.product-content内）の自動スタイリング設定
+           詳細側にclassを書かなくても、ここで一括でデザインを定義します
+           ============================================================ */
 
-    /* 見出し1：メインタイトル */
-    .product-content h1 {
-        @apply text-4xl md:text-5xl font-black mb-4 text-gray-900 tracking-tighter flex items-center gap-3;
-    }
-
-    /* キャッチコピー（h1の直後のpタグを自動装飾） */
-    .product-content h1 + p {
-        @apply text-xl font-bold text-pipo-600 mb-10 tracking-tight;
-    }
-
-    /* 見出し2：セクションタイトル */
-    .product-content h2 {
-        @apply text-2xl font-black mt-16 mb-6 text-gray-800 border-l-8 border-pipo-600 pl-4 flex items-center gap-2;
-    }
-
-    /* 説明文のカード（.description クラスがついたdivを自動装飾） */
-    .product-content .description {
-        @apply bg-white border border-gray-100 p-8 rounded-[2rem] mb-10 shadow-xl shadow-gray-200/50 leading-loose text-gray-600;
-    }
-    .product-content .description h2 {
-        @apply !mt-0 !mb-4 border-none p-0 text-xl text-pipo-600;
+        .product-content {
+            @apply text-gray-800 leading-relaxed;
         }
 
-        /* リスト：主な特徴など */
+        /* 1. メインタイトル (h1) */
+        .product-content h1 {
+            @apply text-4xl md:text-5xl font-black mb-4 text-gray-900 tracking-tighter;
+        }
+
+        /* 2. キャッチコピー (h1の直後のpタグ) */
+        .product-content h1 + p {
+            @apply text-xl font-bold text-pipo-600 mb-10 tracking-tight;
+        }
+
+        /* 3. セクション見出し (h2) */
+        .product-content h2 {
+            @apply text-2xl font-black mt-16 mb-6 text-gray-800 border-l-8 border-pipo-600 pl-4;
+        }
+
+        /* 4. 概要カード (.descriptionクラスがついたdiv) */
+        .product-content .description {
+            @apply bg-white border border-gray-100 p-8 rounded-[2.5rem] mb-10 shadow-xl shadow-gray-200/40 leading-loose text-gray-600;
+        }
+        .product-content .description h2 {
+            @apply !mt-0 !mb-4 border-none p-0 text-xl text-pipo-600 font-black;
+        }
+
+        /* 5. 特徴グリッド (.feature-gridクラスがついたdiv) */
+        .product-content .feature-grid {
+            @apply grid grid-cols-1 md:grid-cols-2 gap-4 my-8;
+        }
+        .product-content .feature-grid > div {
+            @apply p-6 bg-white border border-gray-100 rounded-[2rem] shadow-sm hover:shadow-md transition-all;
+        }
+        .product-content .feature-grid h3 {
+            @apply text-lg font-bold text-gray-900 mb-2;
+        }
+
+        /* 6. リスト (ul / li) */
         .product-content ul {
             @apply space-y-4 my-6 ml-1;
         }
         .product-content li {
             @apply flex items-start gap-3 text-gray-600 font-medium;
         }
-        /* liの前に自動でチェックマークを付与 */
+        /* liの前に自動で青いチェックマークを付与 */
         .product-content li::before {
             content: "✓";
             @apply flex-shrink-0 w-6 h-6 bg-pipo-100 text-pipo-600 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5;
         }
 
-        /* 強調一行：最下部のクロージング */
-        .product-content p:last-child:not(.description p) {
-            @apply mt-16 p-8 text-center bg-gray-900 text-white rounded-[2.5rem] font-bold text-lg shadow-xl;
+        /* 7. 本文中の段落 (p) */
+        .product-content p {
+            @apply mb-4;
         }
+
+        /* 8. 最後の段落 (まとめ・クロージング) */
+        .product-content > p:last-child {
+            @apply mt-16 p-8 text-center bg-gray-900 text-white rounded-[2.5rem] font-bold text-lg shadow-xl shadow-gray-900/10;
+        }
+
     </style>
     <script>
         tailwind.config = {
@@ -71,7 +92,6 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- ヘッダー -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
             <a href="../index.html" class="flex items-center gap-3 group">
@@ -95,7 +115,6 @@
         <div id="product-display" class="hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- サイドバー -->
                 <div class="lg:col-span-4 lg:sticky lg:top-28">
                     <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-gray-200/40 border border-gray-100 mb-6 relative overflow-hidden">
                         <img id="product-icon" src="" alt="" class="w-full h-auto drop-shadow-xl z-10 relative">
@@ -105,7 +124,7 @@
                     <div id="product-tags" class="flex flex-wrap gap-2 mb-8"></div>
                     
                     <div class="bg-slate-900 rounded-3xl p-6 shadow-2xl shadow-slate-900/20 text-white">
-                        <p class="text-[9px] font-bold text-slate-500 mb-3 tracking-widest">今すぐチェック</p>
+                        <p class="text-[9px] font-bold text-slate-500 mb-3 tracking-widest uppercase">Check This Out</p>
                         <a id="action-btn" href="#" target="_blank" class="flex items-center justify-center gap-3 bg-pipo-600 hover:bg-pipo-500 text-white w-full py-4 rounded-2xl font-black transition-all shadow-lg shadow-pipo-600/30">
                             <i class="fas fa-external-link-alt text-sm"></i>
                             アプリを起動する
@@ -113,7 +132,6 @@
                     </div>
                 </div>
 
-                <!-- メインエリア -->
                 <div class="lg:col-span-8">
                     <nav class="mb-8 flex items-center gap-2 text-[10px] font-black tracking-widest text-gray-400 uppercase">
                         <a href="../index.html#products" class="hover:text-pipo-600 transition-colors">製品一覧</a>
@@ -121,7 +139,6 @@
                         <span id="breadcrumb-name" class="text-gray-900 tracking-tighter">製品名</span>
                     </nav>
 
-                    <!-- 詳細HTML注入用コンテナ -->
                     <div id="product-html-content" class="product-content"></div>
 
                     <div class="mt-24 pt-8 border-t border-gray-100 flex justify-between items-center text-[9px] font-bold text-gray-300 tracking-widest uppercase">
@@ -132,14 +149,15 @@
             </div>
         </div>
 
-        <!-- エラー画面 -->
         <div id="error-display" class="hidden text-center py-24">
-            <h2 class="text-xl font-black mb-4">Content Not Found</h2>
-            <a href="../index.html" class="text-pipo-600 font-bold">トップに戻る</a>
+            <h2 class="text-xl font-black mb-4 uppercase tracking-widest text-gray-400">Content Not Found</h2>
+            <p class="mb-8 text-gray-500">お探しの製品ページが見つかりません。</p>
+            <a href="../index.html" class="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-pipo-600 transition-all shadow-lg shadow-gray-900/10">トップに戻る</a>
         </div>
     </main>
 
     <script>
+        // 製品データベース
         const products = {
             'memoflow': { name: 'memoflow', icon: 'https://pipocorp-japan.github.io/asset/memoflow.png?v=1734502121069', file: '../products/memoflow.html', tags: ['メモ', 'ミニマル'], url: 'https://pipocorp-japan.github.io/memoflow/' },
             'pipochart': { name: 'pipoChart', icon: 'https://pipocorp-japan.github.io/asset/chartLab.png?v=1732956500116', file: '../products/pipochart.html', tags: ['データ', 'グラフ', '可視化'], url: 'https://pipocorp-japan.github.io/pipochart/' },
@@ -161,33 +179,44 @@
             }
 
             try {
+                // UI情報の更新
                 document.title = `${data.name} | pipo.corp`;
                 document.getElementById('breadcrumb-name').textContent = data.name.toUpperCase();
                 document.getElementById('product-icon').src = data.icon;
                 document.getElementById('action-btn').href = data.url;
 
+                // タグの生成
                 const tagContainer = document.getElementById('product-tags');
                 data.tags.forEach(tag => {
                     const s = document.createElement('span');
-                    s.className = 'px-3 py-1 bg-white border border-gray-100 text-gray-400 text-[9px] font-black rounded-full uppercase tracking-tighter';
+                    s.className = 'px-3 py-1 bg-white border border-gray-100 text-gray-400 text-[9px] font-black rounded-full uppercase tracking-tighter shadow-sm';
                     s.textContent = tag;
                     tagContainer.appendChild(s);
                 });
 
+                // 詳細HTMLのフェッチと注入
                 const response = await fetch(data.file);
                 if (response.ok) {
                     const htmlText = await response.text();
-                    // 文字列として流し込むことで、詳細側で指定された class="text-xl font-bold text-pipo-600" 等がそのまま機能する
                     const container = document.getElementById('product-html-content');
+                    
+                    // 注入（ここでCSSが自動適用される）
                     container.innerHTML = htmlText;
+                } else {
+                    throw new Error('File not found');
                 }
 
+                // 表示切り替え
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('product-display').classList.remove('hidden');
+
             } catch (e) {
                 console.error(e);
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('error-display').classList.remove('hidden');
             }
         }
+
         window.onload = init;
     </script>
 </body>
